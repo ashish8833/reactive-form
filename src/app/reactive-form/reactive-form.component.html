@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row p-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">Reactive Form</div>
+        <div class="card-body">
+          <form
+            [formGroup]="userForm"
+            (ngSubmit)="submit(userForm)"
+            id="userForm"
+            name="userForm"
+          >
+            <div class="form-group">
+              <label for="name">Full Name</label
+              ><input
+                type="text"
+                name="firstName"
+                class="form-control"
+                formControlName="fullName"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="
+                  userForm.controls['fullName'].touched &&
+                  userForm.controls['fullName'].dirty &&
+                  userForm.controls['fullName'].invalid
+                "
+              >
+                <span>Full name required.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Email</label
+              ><input
+                type="text"
+                name="email"
+                class="form-control"
+                formControlName="email"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="
+                  userForm.controls['email'].touched &&
+                  userForm.controls['email'].dirty &&
+                  userForm.controls['email'].invalid
+                "
+              >
+                <span *ngIf="userForm.controls['fullName'].errors.required"
+                  >Enter valid email.</span
+                >
+                <span *ngIf="userForm.controls['fullName'].errors.pattern"
+                  >Enter valid email.</span
+                >
+              </div>
+            </div>
+            <div class="form-action">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

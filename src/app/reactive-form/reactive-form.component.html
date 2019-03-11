@@ -45,10 +45,10 @@
                   userForm.controls['email'].invalid
                 "
               >
-                <span *ngIf="userForm.controls['fullName'].errors.required"
-                  >Enter valid email.</span
+                <span *ngIf="userForm.controls['email'].errors.required"
+                  >Enter REquired email.</span
                 >
-                <span *ngIf="userForm.controls['fullName'].errors.pattern"
+                <span *ngIf="userForm.controls['email'].errors.pattern"
                   >Enter valid email.</span
                 >
               </div>
